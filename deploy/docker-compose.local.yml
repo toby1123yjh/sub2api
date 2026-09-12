@@ -30,6 +30,9 @@ services:
       context: ..
       dockerfile: Dockerfile
     container_name: sub2api
+    # Allow optional application-configured proxies on the Docker host.
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     restart: unless-stopped
     security_opt:
       - no-new-privileges:true
